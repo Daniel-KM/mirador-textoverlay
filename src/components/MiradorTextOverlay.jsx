@@ -176,8 +176,8 @@ class MiradorTextOverlay extends Component {
 
   /** If the overlay should be rendered at all */
   shouldRender(props) {
-    const { enabled, pageTexts } = props ?? this.props;
-    return enabled && pageTexts.length > 0;
+    const { enabled, pageTexts, visible, selectable } = props ?? this.props;
+    return enabled && pageTexts.length > 0 && (visible || selectable);
   }
 
   /** Update container dimensions and page scale/offset every time the OSD viewport changes. */

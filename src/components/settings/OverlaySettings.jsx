@@ -8,7 +8,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Paper from '@mui/material/Paper';
 import { alpha, useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { MiradorMenuButton } from 'mirador';
+import { MiradorMenuButton, useTranslation } from 'mirador';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
@@ -20,12 +20,12 @@ import OpacityWidget from './OpacityWidget';
 export default function OverlaySettings({
   imageToolsEnabled,
   pageColors,
-  t,
   textsAvailable,
   textsFetching,
   updateWindowTextOverlayOptions,
   windowTextOverlayOptions,
 }) {
+  const { t } = useTranslation();
   const {
     bgColor: defaultBgColor,
     enabled,
@@ -199,7 +199,6 @@ OverlaySettings.propTypes = {
       textColor: PropTypes.string,
     }),
   ).isRequired,
-  t: PropTypes.func.isRequired,
   textsAvailable: PropTypes.bool.isRequired,
   textsFetching: PropTypes.bool.isRequired,
   updateWindowTextOverlayOptions: PropTypes.func.isRequired,

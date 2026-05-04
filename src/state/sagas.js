@@ -86,7 +86,7 @@ export async function fetchOcrMarkup(url) {
 /** Saga for discovering external OCR on visible canvases and requesting it if not yet loaded */
 export function* discoverExternalOcr({ visibleCanvases: visibleCanvasIds, windowId }) {
   const { enabled, selectable, visible } = (yield select(getWindowConfig, { windowId }))
-    .textOverlay ?? { enabled: false };
+    ?.textOverlay ?? { enabled: false };
   if (!enabled) {
     return;
   }
